@@ -1,0 +1,346 @@
+<!DOCTYPE  html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Built with jdoodle.ai - Connect with local street vendors in your area through Bazario">
+  <meta property="og:title" content="Bazario - Connect with Street Vendors">
+  <meta property="og:description" content="Built with jdoodle.ai - Find local street vendors, browse their products, and pay directly through our platform">
+  <meta property="og:image" content="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/148197e7j9c31j42c9j9926jb480de603a73/public">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Bazario - Connect with Street Vendors">
+  <meta property="twitter:description" content="Built with jdoodle.ai - Find local street vendors, browse their products, and pay directly through our platform">
+  <meta property="twitter:image" content="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/148197e7j9c31j42c9j9926jb480de603a73/public">
+  <title>Bazario - Connect with Street Vendors</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+</head>
+<body>
+  <div class="page-loader">
+    <div class="spinner"></div>
+  </div>
+
+  <header>
+    <div class="container">
+      <div class="logo">
+        <span class="icon">🛒</span>
+        <h1 class="text-gradient">Bazario</h1>
+      </div>
+      <nav>
+        <button class="mobile-menu" id="menuToggle">☰</button>
+        <ul class="nav-menu">
+          <li><a href="#about" class="hover-underline-animation">About</a></li>
+          <li><a href="#how-it-works" class="hover-underline-animation">How It Works</a></li>
+          <li><a href="#features" class="hover-underline-animation">Features</a></li>
+          <li><a href="#contact" class="hover-underline-animation">Contact</a></li>
+          <li><a href="vendor.html" class="btn btn-outline shine-effect">Vendor Login</a></li>
+          <li><a href="customer.html" class="btn shine-effect">Customer Login</a></li>
+          <li><a href="admin.html" class="btn btn-secondary shine-effect">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2 class="animated-text">Connect with Local Street Vendors</h2>
+        <p>Discover fresh produce, homemade goods, and authentic street food from vendors in your neighborhood</p>
+        <a href="customer.html" class="btn btn-lg shine-effect">Explore Vendors</a>
+        <div class="stats-container reveal-animation">
+          <div class="stat-item">
+            <span class="stat-number" data-count="500">0</span>
+            <span class="stat-label">Vendors</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="5000">0</span>
+            <span class="stat-label">Customers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="20000">0</span>
+            <span class="stat-label">Transactions</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image reveal-animation">
+        <img src="https://images.unsplash.com/photo-1485873174476-292bc2df1cc0?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwxfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=600&w=800" alt="Night market with food vendors">
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#f7f7f7" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About Bazario</h2>
+      <div class="section-underline"></div>
+      <div class="about-content">
+        <div class="about-text reveal-animation">
+          <p>Bazario bridges the gap between street vendors and local customers, preserving traditional markets while embracing digital convenience.</p>
+          <p>Our mission is to help small-scale vendors thrive in the digital age by connecting them directly with customers in their area.</p>
+          <a href="#contact" class="btn btn-outline mt-20">Learn More</a>
+        </div>
+        <div class="about-image reveal-animation">
+          <div class="image-card">
+            <img src="https://images.unsplash.com/photo-1516006895114-c12315fb4222?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwyfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=600&w=800" alt="Street food vendor serving food">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="section-underline"></div>
+      <div class="steps">
+        <div class="step reveal-animation" data-delay="100">
+          <div class="step-icon pulse-animation">📱</div>
+          <h3>Register</h3>
+          <p>Vendors and customers create free accounts</p>
+        </div>
+        <div class="step reveal-animation" data-delay="300">
+          <div class="step-icon pulse-animation">📍</div>
+          <h3>Connect</h3>
+          <p>Vendors share location and product details</p>
+        </div>
+        <div class="step reveal-animation" data-delay="500">
+          <div class="step-icon pulse-animation">🔍</div>
+          <h3>Discover</h3>
+          <p>Customers find nearby vendors and products</p>
+        </div>
+        <div class="step reveal-animation" data-delay="700">
+          <div class="step-icon pulse-animation">💰</div>
+          <h3>Purchase</h3>
+          <p>Direct payment through UPI QR codes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="container">
+      <h2 class="section-title">Features</h2>
+      <div class="section-underline"></div>
+      <div class="feature-cards">
+        <div class="card reveal-animation" data-delay="100">
+          <div class="card-icon">🗺️</div>
+          <h3>Location Sharing</h3>
+          <p>Vendors can share their real-time location with customers</p>
+          <div class="card-hover-info">
+            <p>Get turn-by-turn directions to vendors' exact locations</p>
+          </div>
+        </div>
+        <div class="card reveal-animation" data-delay="300">
+          <div class="card-icon">📦</div>
+          <h3>Product Management</h3>
+          <p>Easy listing and updating of available products</p>
+          <div class="card-hover-info">
+            <p>Update product availability in real-time with just one tap</p>
+          </div>
+        </div>
+        <div class="card reveal-animation" data-delay="500">
+          <div class="card-icon">💳</div>
+          <h3>Digital Payments</h3>
+          <p>Secure transactions through UPI QR codes</p>
+          <div class="card-hover-info">
+            <p>Fast, secure, and contactless payment options</p>
+          </div>
+        </div>
+        <div class="card reveal-animation" data-delay="700">
+          <div class="card-icon">🔔</div>
+          <h3>Availability Updates</h3>
+          <p>Real-time status updates for products</p>
+          <div class="card-hover-info">
+            <p>Get notifications when your favorite vendors are nearby</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">What People Say</h2>
+      <div class="section-underline"></div>
+      <div class="testimonial-slider" id="testimonialSlider">
+        <div class="testimonial-slide">
+          <div class="testimonial-content">
+            <div class="quote">"Bazario helped me expand my customer base. Now I get regular orders even on weekdays!"</div>
+            <div class="testimonial-author">
+              <div class="author-image">
+                <img src="https://images.unsplash.com/photo-1514318009356-d8219fec285d?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHw0fHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=100&w=100" alt="Vendor">
+              </div>
+              <div class="author-info">
+                <div class="author-name">Rahul Sharma</div>
+                <div class="author-role">Street Food Vendor</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-content">
+            <div class="quote">"I love being able to find my favorite street food vendors wherever they are. The app is so easy to use!"</div>
+            <div class="testimonial-author">
+              <div class="author-image">
+                <img src="https://images.unsplash.com/photo-1517243985121-d6ae97460078?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHw1fHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=100&w=100" alt="Customer">
+              </div>
+              <div class="author-info">
+                <div class="author-name">Priya Patel</div>
+                <div class="author-role">Regular Customer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-content">
+            <div class="quote">"Digital payments have made my business much more efficient. I don't have to worry about change anymore!"</div>
+            <div class="testimonial-author">
+              <div class="author-image">
+                <img src="https://images.unsplash.com/photo-1495519365602-f782748ae8d3?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwzfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=100&w=100" alt="Vendor">
+              </div>
+              <div class="author-info">
+                <div class="author-name">Meena Kumari</div>
+                <div class="author-role">Produce Vendor</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-controls">
+        <button class="control-btn prev" id="prevTestimonial">&#10094;</button>
+        <div class="testimonial-dots" id="testimonialDots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <button class="control-btn next" id="nextTestimonial">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="section-underline"></div>
+      <div class="contact-wrapper">
+        <div class="contact-info reveal-animation">
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-content">
+              <h3>Address</h3>
+              <p>123 Market Street, Mumbai, India 400001</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div class="info-content">
+              <h3>Phone</h3>
+              <p>+91 9876543210</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div class="info-content">
+              <h3>Email</h3>
+              <p>hello@bazario.com</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">Instagram</a>
+          </div>
+        </div>
+        <div class="contact-form reveal-animation">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" required>
+              <span class="focus-border"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+              <span class="focus-border"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="4" required></textarea>
+              <span class="focus-border"></span>
+            </div>
+            <button type="submit" class="btn btn-full shine-effect">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Get Started?</h2>
+        <p>Join Bazario today and connect with local vendors or grow your street business!</p>
+        <div class="cta-buttons">
+          <a href="vendor.html" class="btn btn-outline-light shine-effect">I'm a Vendor</a>
+          <a href="customer.html" class="btn btn-light shine-effect">I'm a Customer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#293241" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="icon">🛒</span>
+          <h3 class="text-gradient">Bazario</h3>
+          <p>Connecting vendors and customers</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about" class="hover-underline-animation">About</a></li>
+            <li><a href="#how-it-works" class="hover-underline-animation">How It Works</a></li>
+            <li><a href="#features" class="hover-underline-animation">Features</a></li>
+            <li><a href="#contact" class="hover-underline-animation">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Portals</h4>
+          <ul>
+            <li><a href="vendor.html" class="hover-underline-animation">Vendor Portal</a></li>
+            <li><a href="customer.html" class="hover-underline-animation">Customer Portal</a></li>
+            <li><a href="admin.html" class="hover-underline-animation">Admin Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Subscribe to our newsletter</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email">
+            <button class="btn btn-sm shine-effect">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Bazario. All rights reserved.</p>
+      </div>
+    </div>
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>
+  

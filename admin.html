@@ -1,0 +1,858 @@
+<!DOCTYPE  html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Built with jdoodle.ai - Admin portal for Bazario - manage vendors, customers, and platform operations">
+  <meta property="og:title" content="Bazario Admin Portal">
+  <meta property="og:description" content="Built with jdoodle.ai - Manage vendors, customers, and platform operations on Bazario">
+  <meta property="og:image" content="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/148197e7j9c31j42c9j9926jb480de603a73/public">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Bazario Admin Portal">
+  <meta property="twitter:description" content="Built with jdoodle.ai - Manage vendors, customers, and platform operations on Bazario">
+  <meta property="twitter:image" content="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/148197e7j9c31j42c9j9926jb480de603a73/public">
+  <title>Bazario Admin Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+</head>
+<body>
+  <div class="page-loader">
+    <div class="spinner"></div>
+  </div>
+  
+  <header>
+    <div class="container">
+      <div class="logo">
+        <span class="icon">🛒</span>
+        <h1 class="text-gradient">Bazario Admin</h1>
+      </div>
+      <nav>
+        <button class="mobile-menu" id="menuToggle">☰</button>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="hover-underline-animation">Home</a></li>
+          <li><a href="vendor.html" class="hover-underline-animation">Vendor Portal</a></li>
+          <li><a href="customer.html" class="hover-underline-animation">Customer Portal</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="auth-section" id="adminAuth">
+    <div class="container">
+      <div class="auth-container reveal-animation">
+        <div class="auth-form" id="adminLoginForm">
+          <h2 class="text-gradient">Admin Login</h2>
+          <form>
+            <div class="form-group">
+              <label for="adminUsername">Username</label>
+              <input type="text" id="adminUsername" required>
+              <span class="focus-border"></span>
+            </div>
+            <div class="form-group">
+              <label for="adminPassword">Password</label>
+              <input type="password" id="adminPassword" required>
+              <span class="focus-border"></span>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-full shine-effect">Login</button>
+            </div>
+            <div class="auth-links">
+              <a href="#" class="hover-underline-animation">Forgot password?</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dashboard hidden" id="adminDashboard">
+    <div class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-header">
+        <div class="admin-profile">
+          <div class="admin-avatar">A</div>
+          <div class="admin-info">
+            <h3>Admin User</h3>
+            <p>Super Admin</p>
+          </div>
+        </div>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="active" data-panel="dashboard"><span class="menu-icon">📊</span> Dashboard</li>
+        <li data-panel="vendors"><span class="menu-icon">🏪</span> Vendors</li>
+        <li data-panel="customers"><span class="menu-icon">👥</span> Customers</li>
+        <li data-panel="transactions"><span class="menu-icon">💰</span> Transactions</li>
+        <li data-panel="reports"><span class="menu-icon">📈</span> Reports</li>
+        <li data-panel="settings"><span class="menu-icon">⚙️</span> Settings</li>
+      </ul>
+      <div class="sidebar-footer">
+        <button class="btn btn-outline btn-sm shine-effect" id="adminLogoutBtn">Logout</button>
+      </div>
+    </div>
+    
+    <div class="admin-content">
+      <div class="admin-header">
+        <div class="admin-header-title">
+          <h2 class="text-gradient" id="panelTitle">Dashboard</h2>
+        </div>
+        <div class="admin-header-actions">
+          <div class="search-wrapper">
+            <input type="text" placeholder="Search..." id="adminSearch">
+            <button class="search-button">🔍</button>
+          </div>
+          <div class="notification-bell">
+            <span class="bell-icon">🔔</span>
+            <span class="notification-badge">3</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="admin-panel active" id="dashboardPanel">
+        <div class="admin-stats">
+          <div class="stat-card reveal-animation" data-delay="100">
+            <div class="stat-icon vendor-icon">🏪</div>
+            <div class="stat-info">
+              <div class="stat-value">254</div>
+              <div class="stat-label">Total Vendors</div>
+              <div class="stat-change positive">+24 this month</div>
+            </div>
+          </div>
+          
+          <div class="stat-card reveal-animation" data-delay="200">
+            <div class="stat-icon customer-icon">👥</div>
+            <div class="stat-info">
+              <div class="stat-value">5,782</div>
+              <div class="stat-label">Total Customers</div>
+              <div class="stat-change positive">+342 this month</div>
+            </div>
+          </div>
+          
+          <div class="stat-card reveal-animation" data-delay="300">
+            <div class="stat-icon transaction-icon">💰</div>
+            <div class="stat-info">
+              <div class="stat-value">₹3.4L</div>
+              <div class="stat-label">Total Revenue</div>
+              <div class="stat-change positive">+18% this month</div>
+            </div>
+          </div>
+          
+          <div class="stat-card reveal-animation" data-delay="400">
+            <div class="stat-icon order-icon">📦</div>
+            <div class="stat-info">
+              <div class="stat-value">1,245</div>
+              <div class="stat-label">Total Orders</div>
+              <div class="stat-change positive">+123 this month</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="admin-charts">
+          <div class="chart-card reveal-animation" data-delay="500">
+            <div class="card-header">
+              <h3>Revenue Trends</h3>
+              <div class="header-actions">
+                <select class="chart-filter">
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly" selected>Monthly</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="revenue-chart chart-placeholder">
+                <div class="chart-bar" style="height: 30%"></div>
+                <div class="chart-bar" style="height: 50%"></div>
+                <div class="chart-bar" style="height: 40%"></div>
+                <div class="chart-bar" style="height: 60%"></div>
+                <div class="chart-bar" style="height: 70%"></div>
+                <div class="chart-bar" style="height: 85%"></div>
+                <div class="chart-bar" style="height: 75%"></div>
+                <div class="chart-bar" style="height: 90%"></div>
+                <div class="chart-bar" style="height: 80%"></div>
+                <div class="chart-bar" style="height: 95%"></div>
+                <div class="chart-bar active" style="height: 100%"></div>
+                <div class="chart-bar" style="height: 90%"></div>
+              </div>
+              <div class="chart-legend">Monthly Revenue (Last 12 Months)</div>
+            </div>
+          </div>
+          
+          <div class="chart-card reveal-animation" data-delay="600">
+            <div class="card-header">
+              <h3>User Growth</h3>
+              <div class="header-actions">
+                <select class="chart-filter">
+                  <option value="vendors">Vendors</option>
+                  <option value="customers" selected>Customers</option>
+                  <option value="combined">Combined</option>
+                </select>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="growth-chart chart-placeholder">
+                <div class="chart-line"></div>
+                <div class="chart-dots">
+                  <div class="chart-dot" style="bottom: 20%; left: 0%"></div>
+                  <div class="chart-dot" style="bottom: 25%; left: 10%"></div>
+                  <div class="chart-dot" style="bottom: 35%; left: 20%"></div>
+                  <div class="chart-dot" style="bottom: 40%; left: 30%"></div>
+                  <div class="chart-dot" style="bottom: 45%; left: 40%"></div>
+                  <div class="chart-dot" style="bottom: 55%; left: 50%"></div>
+                  <div class="chart-dot" style="bottom: 60%; left: 60%"></div>
+                  <div class="chart-dot" style="bottom: 70%; left: 70%"></div>
+                  <div class="chart-dot" style="bottom: 75%; left: 80%"></div>
+                  <div class="chart-dot" style="bottom: 85%; left: 90%"></div>
+                  <div class="chart-dot" style="bottom: 90%; left: 100%"></div>
+                </div>
+              </div>
+              <div class="chart-legend">Customer Growth (Last 12 Months)</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="admin-recent reveal-animation" data-delay="700">
+          <div class="recent-header">
+            <h3>Recent Activities</h3>
+            <a href="#" class="view-all hover-underline-animation">View All</a>
+          </div>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon">👤</div>
+              <div class="activity-details">
+                <div class="activity-title">New Vendor Registration</div>
+                <div class="activity-description">Vendor "Fresh Organics" has registered</div>
+                <div class="activity-time">2 hours ago</div>
+              </div>
+              <div class="activity-actions">
+                <button class="btn btn-sm shine-effect">Approve</button>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon">🛒</div>
+              <div class="activity-details">
+                <div class="activity-title">Large Transaction Alert</div>
+                <div class="activity-description">Order #ORD8754 worth ₹5,200 completed</div>
+                <div class="activity-time">3 hours ago</div>
+              </div>
+              <div class="activity-actions">
+                <button class="btn btn-sm btn-outline shine-effect">Review</button>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon">⚠️</div>
+              <div class="activity-details">
+                <div class="activity-title">Customer Complaint</div>
+                <div class="activity-description">Complaint against vendor "Spice Paradise"</div>
+                <div class="activity-time">5 hours ago</div>
+              </div>
+              <div class="activity-actions">
+                <button class="btn btn-sm shine-effect">Respond</button>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon">📊</div>
+              <div class="activity-details">
+                <div class="activity-title">Monthly Report Generated</div>
+                <div class="activity-description">August 2023 financial report is ready</div>
+                <div class="activity-time">Yesterday</div>
+              </div>
+              <div class="activity-actions">
+                <button class="btn btn-sm btn-outline shine-effect">Download</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="admin-panel" id="vendorsPanel">
+        <div class="panel-actions">
+          <div class="action-filters">
+            <select id="vendorStatusFilter" class="action-filter">
+              <option value="all">All Statuses</option>
+              <option value="active">Active</option>
+              <option value="pending">Pending Approval</option>
+              <option value="suspended">Suspended</option>
+            </select>
+            <select id="vendorCategoryFilter" class="action-filter">
+              <option value="all">All Categories</option>
+              <option value="food">Food & Beverages</option>
+              <option value="produce">Fresh Produce</option>
+              <option value="craft">Handmade Crafts</option>
+              <option value="clothing">Clothing & Accessories</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button class="btn btn-sm shine-effect">+ Add Vendor</button>
+        </div>
+        
+        <div class="data-table-container reveal-animation">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Vendor Name</th>
+                <th>Category</th>
+                <th>Location</th>
+                <th>Joined</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>V001</td>
+                <td>
+                  <div class="table-vendor">
+                    <img src="https://images.unsplash.com/photo-1516006895114-c12315fb4222?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwyfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=50&w=50" alt="Vendor">
+                    <span>Sharma's Street Food</span>
+                  </div>
+                </td>
+                <td>Food & Beverages</td>
+                <td>Mumbai, MH</td>
+                <td>12 Jul 2023</td>
+                <td><span class="status-badge active">Active</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn edit-btn">✏️</button>
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn delete-btn">❌</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>V002</td>
+                <td>
+                  <div class="table-vendor">
+                    <img src="https://images.unsplash.com/photo-1485873174476-292bc2df1cc0?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwxfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=50&w=50" alt="Vendor">
+                    <span>Patel's Fresh Produce</span>
+                  </div>
+                </td>
+                <td>Fresh Produce</td>
+                <td>Delhi, DL</td>
+                <td>05 Aug 2023</td>
+                <td><span class="status-badge active">Active</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn edit-btn">✏️</button>
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn delete-btn">❌</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>V003</td>
+                <td>
+                  <div class="table-vendor">
+                    <img src="https://images.unsplash.com/photo-1517243985121-d6ae97460078?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHw1fHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=50&w=50" alt="Vendor">
+                    <span>Meena's Handcrafts</span>
+                  </div>
+                </td>
+                <td>Handmade Crafts</td>
+                <td>Jaipur, RJ</td>
+                <td>17 Aug 2023</td>
+                <td><span class="status-badge pending">Pending</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn edit-btn">✏️</button>
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn delete-btn">❌</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>V004</td>
+                <td>
+                  <div class="table-vendor">
+                    <img src="https://images.unsplash.com/photo-1514318009356-d8219fec285d?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHw0fHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=50&w=50" alt="Vendor">
+                    <span>Organic Delights</span>
+                  </div>
+                </td>
+                <td>Food & Beverages</td>
+                <td>Bangalore, KA</td>
+                <td>23 Jun 2023</td>
+                <td><span class="status-badge suspended">Suspended</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn edit-btn">✏️</button>
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn delete-btn">❌</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div class="pagination">
+            <button class="pagination-btn">«</button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn">»</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="admin-panel" id="customersPanel">
+        <div class="panel-actions">
+          <div class="action-filters">
+            <select id="customerStatusFilter" class="action-filter">
+              <option value="all">All Statuses</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+              <option value="blocked">Blocked</option>
+            </select>
+          </div>
+          <button class="btn btn-sm shine-effect">+ Add Customer</button>
+        </div>
+        
+        <div class="data-table-container reveal-animation">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Location</th>
+                <th>Joined</th>
+                <th>Orders</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>C001</td>
+                <td>Rahul Mehta</td>
+                <td>rahul@example.com</td>
+                <td>Mumbai, MH</td>
+                <td>10 Jul 2023</td>
+                <td>24</td>
+                <td><span class="status-badge active">Active</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn edit-btn">✏️</button>
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn delete-btn">❌</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>C002</td>
+                <td>Priya Singh</td>
+                <td>priya@example.com</td>
+                <td>Delhi, DL</td>
+                <td>15 Jul 2023</td>
+                <td>18</td>
+                <td><span class="status-badge active">Active</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn edit-btn">✏️</button>
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn delete-btn">❌</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>C003</td>
+                <td>Amit Kumar</td>
+                <td>amit@example.com</td>
+                <td>Bangalore, KA</td>
+                <td>22 Jul 2023</td>
+                <td>7</td>
+                <td><span class="status-badge inactive">Inactive</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn edit-btn">✏️</button>
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn delete-btn">❌</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>C004</td>
+                <td>Sanya Patel</td>
+                <td>sanya@example.com</td>
+                <td>Chennai, TN</td>
+                <td>05 Aug 2023</td>
+                <td>12</td>
+                <td><span class="status-badge active">Active</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn edit-btn">✏️</button>
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn delete-btn">❌</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div class="pagination">
+            <button class="pagination-btn">«</button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn">»</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="admin-panel" id="transactionsPanel">
+        <div class="panel-actions">
+          <div class="action-filters">
+            <select id="transactionStatusFilter" class="action-filter">
+              <option value="all">All Statuses</option>
+              <option value="completed">Completed</option>
+              <option value="pending">Pending</option>
+              <option value="failed">Failed</option>
+              <option value="refunded">Refunded</option>
+            </select>
+            <div class="date-filter">
+              <input type="date" class="date-input" placeholder="From">
+              <span>to</span>
+              <input type="date" class="date-input" placeholder="To">
+            </div>
+          </div>
+          <button class="btn btn-sm btn-outline shine-effect">Export CSV</button>
+        </div>
+        
+        <div class="data-table-container reveal-animation">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Vendor</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Payment Method</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>T001</td>
+                <td>Rahul Mehta</td>
+                <td>Sharma's Street Food</td>
+                <td>₹240</td>
+                <td>Today, 2:30 PM</td>
+                <td>UPI</td>
+                <td><span class="status-badge completed">Completed</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn download-btn">📥</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>T002</td>
+                <td>Priya Singh</td>
+                <td>Patel's Fresh Produce</td>
+                <td>₹520</td>
+                <td>Today, 12:15 PM</td>
+                <td>UPI</td>
+                <td><span class="status-badge completed">Completed</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn download-btn">📥</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>T003</td>
+                <td>Sanya Patel</td>
+                <td>Meena's Handcrafts</td>
+                <td>₹1,200</td>
+                <td>Yesterday, 4:45 PM</td>
+                <td>UPI</td>
+                <td><span class="status-badge pending">Pending</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn download-btn">📥</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>T004</td>
+                <td>Amit Kumar</td>
+                <td>Organic Delights</td>
+                <td>₹350</td>
+                <td>Yesterday, 11:20 AM</td>
+                <td>UPI</td>
+                <td><span class="status-badge refunded">Refunded</span></td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn view-btn">👁️</button>
+                    <button class="action-btn download-btn">📥</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div class="pagination">
+            <button class="pagination-btn">«</button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn">»</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="admin-panel" id="reportsPanel">
+        <div class="reports-container reveal-animation">
+          <div class="reports-tabs">
+            <button class="report-tab active" data-report="revenue">Revenue Reports</button>
+            <button class="report-tab" data-report="vendors">Vendor Reports</button>
+            <button class="report-tab" data-report="customers">Customer Reports</button>
+            <button class="report-tab" data-report="products">Product Reports</button>
+          </div>
+          
+          <div class="report-content active" id="revenueReport">
+            <div class="report-header">
+              <h3>Revenue Reports</h3>
+              <div class="report-actions">
+                <select class="report-period">
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly" selected>Monthly</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+                <button class="btn btn-sm btn-outline shine-effect">Generate Report</button>
+                <button class="btn btn-sm shine-effect">Export</button>
+              </div>
+            </div>
+            
+            <div class="report-summary">
+              <div class="summary-card">
+                <div class="summary-title">Total Revenue</div>
+                <div class="summary-value">₹3,42,560</div>
+                <div class="summary-change positive">+18% from last period</div>
+              </div>
+              
+              <div class="summary-card">
+                <div class="summary-title">Average Order Value</div>
+                <div class="summary-value">₹275</div>
+                <div class="summary-change positive">+5% from last period</div>
+              </div>
+              
+              <div class="summary-card">
+                <div class="summary-title">Platform Fees</div>
+                <div class="summary-value">₹34,256</div>
+                <div class="summary-change positive">+18% from last period</div>
+              </div>
+              
+              <div class="summary-card">
+                <div class="summary-title">Vendor Payouts</div>
+                <div class="summary-value">₹3,08,304</div>
+                <div class="summary-change positive">+18% from last period</div>
+              </div>
+            </div>
+            
+            <div class="report-visualization">
+              <div class="large-chart">
+                <div class="chart-placeholder">
+                  <div class="chart-bar" style="height: 30%"></div>
+                  <div class="chart-bar" style="height: 50%"></div>
+                  <div class="chart-bar" style="height: 40%"></div>
+                  <div class="chart-bar" style="height: 60%"></div>
+                  <div class="chart-bar" style="height: 70%"></div>
+                  <div class="chart-bar" style="height: 85%"></div>
+                  <div class="chart-bar" style="height: 75%"></div>
+                  <div class="chart-bar" style="height: 90%"></div>
+                  <div class="chart-bar" style="height: 80%"></div>
+                  <div class="chart-bar" style="height: 95%"></div>
+                  <div class="chart-bar active" style="height: 100%"></div>
+                  <div class="chart-bar" style="height: 90%"></div>
+                </div>
+              </div>
+              
+              <div class="small-charts">
+                <div class="small-chart">
+                  <h4>Revenue by Category</h4>
+                  <div class="pie-chart-placeholder">
+                    <div class="pie-slice" style="--percentage: 45%; --color: var(--primary);"></div>
+                    <div class="pie-slice" style="--percentage: 25%; --color: var(--secondary);"></div>
+                    <div class="pie-slice" style="--percentage: 20%; --color: var(--success);"></div>
+                    <div class="pie-slice" style="--percentage: 10%; --color: var(--warning);"></div>
+                  </div>
+                  <div class="pie-legend">
+                    <div class="legend-item"><span class="legend-color" style="background-color: var(--primary);"></span> Food & Beverages (45%)</div>
+                    <div class="legend-item"><span class="legend-color" style="background-color: var(--secondary);"></span> Fresh Produce (25%)</div>
+                    <div class="legend-item"><span class="legend-color" style="background-color: var(--success);"></span> Handmade Crafts (20%)</div>
+                    <div class="legend-item"><span class="legend-color" style="background-color: var(--warning);"></span> Others (10%)</div>
+                  </div>
+                </div>
+                
+                <div class="small-chart">
+                  <h4>Revenue by Location</h4>
+                  <div class="pie-chart-placeholder">
+                    <div class="pie-slice" style="--percentage: 35%; --color: var(--primary);"></div>
+                    <div class="pie-slice" style="--percentage: 30%; --color: var(--secondary);"></div>
+                    <div class="pie-slice" style="--percentage: 20%; --color: var(--success);"></div>
+                    <div class="pie-slice" style="--percentage: 15%; --color: var(--warning);"></div>
+                  </div>
+                  <div class="pie-legend">
+                    <div class="legend-item"><span class="legend-color" style="background-color: var(--primary);"></span> Mumbai (35%)</div>
+                    <div class="legend-item"><span class="legend-color" style="background-color: var(--secondary);"></span> Delhi (30%)</div>
+                    <div class="legend-item"><span class="legend-color" style="background-color: var(--success);"></span> Bangalore (20%)</div>
+                    <div class="legend-item"><span class="legend-color" style="background-color: var(--warning);"></span> Others (15%)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="report-content" id="vendorsReport">
+            <div class="report-header">
+              <h3>Vendor Reports</h3>
+              <div class="report-actions">
+                <button class="btn btn-sm btn-outline shine-effect">Generate Report</button>
+                <button class="btn btn-sm shine-effect">Export</button>
+              </div>
+            </div>
+            
+            <!-- Vendor report content would go here -->
+            <div class="placeholder-content">
+              <p>Vendor reports content will be displayed here.</p>
+            </div>
+          </div>
+          
+          <div class="report-content" id="customersReport">
+            <div class="report-header">
+              <h3>Customer Reports</h3>
+              <div class="report-actions">
+                <button class="btn btn-sm btn-outline shine-effect">Generate Report</button>
+                <button class="btn btn-sm shine-effect">Export</button>
+              </div>
+            </div>
+            
+            <!-- Customer report content would go here -->
+            <div class="placeholder-content">
+              <p>Customer reports content will be displayed here.</p>
+            </div>
+          </div>
+          
+          <div class="report-content" id="productsReport">
+            <div class="report-header">
+              <h3>Product Reports</h3>
+              <div class="report-actions">
+                <button class="btn btn-sm btn-outline shine-effect">Generate Report</button>
+                <button class="btn btn-sm shine-effect">Export</button>
+              </div>
+            </div>
+            
+            <!-- Product report content would go here -->
+            <div class="placeholder-content">
+              <p>Product reports content will be displayed here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="admin-panel" id="settingsPanel">
+        <div class="settings-container reveal-animation">
+          <div class="settings-tabs">
+            <button class="settings-tab active" data-settings="general">General</button>
+            <button class="settings-tab" data-settings="appearance">Appearance</button>
+            <button class="settings-tab" data-settings="permissions">Permissions</button>
+            <button class="settings-tab" data-settings="notifications">Notifications</button>
+            <button class="settings-tab" data-settings="integrations">Integrations</button>
+          </div>
+          
+          <div class="settings-content active" id="generalSettings">
+            <div class="settings-header">
+              <h3>General Settings</h3>
+              <button class="btn btn-sm shine-effect">Save Changes</button>
+            </div>
+            
+            <div class="settings-form">
+              <div class="settings-section">
+                <h4>Platform Information</h4>
+                <div class="form-group">
+                  <label for="platformName">Platform Name</label>
+                  <input type="text" id="platformName" value="Bazario">
+                  <span class="focus-border"></span>
+                </div>
+                <div class="form-group">
+                  <label for="platformEmail">Support Email</label>
+                  <input type="email" id="platformEmail" value="support@bazario.com">
+                  <span class="focus-border"></span>
+                </div>
+                <div class="form-group">
+                  <label for="platformPhone">Support Phone</label>
+                  <input type="tel" id="platformPhone" value="+91 9876543210">
+                  <span class="focus-border"></span>
+                </div>
+              </div>
+              
+              <div class="settings-section">
+                <h4>Platform Fees</h4>
+                <div class="form-group">
+                  <label for="transactionFee">Transaction Fee (%)</label>
+                  <input type="number" id="transactionFee" value="10" min="0" max="100" step="0.5">
+                  <span class="focus-border"></span>
+                </div>
+                <div class="form-group">
+                  <label for="subscriptionFee">Vendor Monthly Subscription (₹)</label>
+                  <input type="number" id="subscriptionFee" value="299">
+                  <span class="focus-border"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-content" id="appearanceSettings">
+            <!-- Appearance settings content would go here -->
+            <div class="placeholder-content">
+              <p>Appearance settings will be displayed here.</p>
+            </div>
+          </div>
+          
+          <div class="settings-content" id="permissionsSettings">
+            <!-- Permissions settings content would go here -->
+            <div class="placeholder-content">
+              <p>Permissions settings will be displayed here.</p>
+            </div>
+          </div>
+          
+          <div class="settings-content" id="notificationsSettings">
+            <!-- Notifications settings content would go here -->
+            <div class="placeholder-content">
+              <p>Notifications settings will be displayed here.</p>
+            </div>
+          </div>
+          
+          <div class="settings-content" id="integrationsSettings">
+            <!-- Integrations settings content would go here -->
+            <div class="placeholder-content">
+              <p>Integrations settings will be displayed here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="admin-footer">
+    <div class="container">
+      <div class="copyright">
+        <p>&copy; 2025 Bazario Admin. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="animations.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
+  

@@ -1,0 +1,352 @@
+<!DOCTYPE  html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Built with jdoodle.ai - Customer portal for Bazario - find local vendors, browse products, and make payments">
+  <meta property="og:title" content="Bazario Customer Portal">
+  <meta property="og:description" content="Built with jdoodle.ai - Find local vendors, browse products, and make payments on Bazario">
+  <meta property="og:image" content="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/148197e7j9c31j42c9j9926jb480de603a73/public">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Bazario Customer Portal">
+  <meta property="twitter:description" content="Built with jdoodle.ai - Find local vendors, browse products, and make payments on Bazario">
+  <meta property="twitter:image" content="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/148197e7j9c31j42c9j9926jb480de603a73/public">
+  <title>Bazario Customer Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+</head>
+<body>
+  <div class="page-loader">
+    <div class="spinner"></div>
+  </div>
+  
+  <header>
+    <div class="container">
+      <div class="logo">
+        <span class="icon">🛒</span>
+        <h1 class="text-gradient">Bazario</h1>
+      </div>
+      <nav>
+        <button class="mobile-menu" id="menuToggle">☰</button>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="hover-underline-animation">Home</a></li>
+          <li><a href="vendor.html" class="btn btn-outline shine-effect">Vendor Portal</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="auth-section" id="customerAuth">
+    <div class="container">
+      <div class="auth-container reveal-animation">
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">Login</button>
+          <button class="auth-tab" data-tab="register">Register</button>
+        </div>
+        
+        <div class="auth-form" id="loginForm">
+          <h2 class="text-gradient">Customer Login</h2>
+          <form>
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" required>
+              <span class="focus-border"></span>
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" required>
+              <span class="focus-border"></span>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-full shine-effect">Login</button>
+            </div>
+            <div class="auth-links">
+              <a href="#" class="hover-underline-animation">Forgot password?</a>
+            </div>
+          </form>
+        </div>
+        
+        <div class="auth-form hidden" id="registerForm">
+          <h2 class="text-gradient">Customer Registration</h2>
+          <form>
+            <div class="form-group">
+              <label for="registerName">Full Name</label>
+              <input type="text" id="registerName" required>
+              <span class="focus-border"></span>
+            </div>
+            <div class="form-group">
+              <label for="registerEmail">Email</label>
+              <input type="email" id="registerEmail" required>
+              <span class="focus-border"></span>
+            </div>
+            <div class="form-group">
+              <label for="registerPassword">Password</label>
+              <input type="password" id="registerPassword" required>
+              <span class="focus-border"></span>
+            </div>
+            <div class="form-group">
+              <label for="registerPhone">Phone Number</label>
+              <input type="tel" id="registerPhone" required>
+              <span class="focus-border"></span>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-full shine-effect">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dashboard hidden" id="customerDashboard">
+    <div class="container">
+      <div class="dashboard-header">
+        <h2 class="text-gradient">Find Nearby Vendors</h2>
+        <div class="dashboard-actions">
+          <span class="user-welcome">Welcome, <span id="customerName">Customer</span>!</span>
+          <div class="search-filter">
+            <select id="categoryFilter">
+              <option value="all">All Categories</option>
+              <option value="food">Food & Beverages</option>
+              <option value="produce">Fresh Produce</option>
+              <option value="craft">Handmade Crafts</option>
+              <option value="clothing">Clothing & Accessories</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="search-wrapper">
+              <input type="text" placeholder="Search vendors..." id="vendorSearch">
+              <button class="search-button">🔍</button>
+            </div>
+          </div>
+          <button class="btn btn-outline shine-effect" id="logoutBtn">Logout</button>
+        </div>
+      </div>
+      
+      <div class="dashboard-content">
+        <div class="vendor-map reveal-animation">
+          <div class="map-container">
+            <img src="https://images.unsplash.com/photo-1495519365602-f782748ae8d3?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwzfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=600&w=800" alt="Map placeholder">
+            <div class="map-pin pulse-pin" style="top: 40%; left: 30%;" data-vendor="vendor1"></div>
+            <div class="map-pin pulse-pin" style="top: 60%; left: 50%;" data-vendor="vendor2"></div>
+            <div class="map-pin pulse-pin" style="top: 30%; left: 70%;" data-vendor="vendor3"></div>
+            <div class="map-overlay">
+              <p>Map view shows nearby vendor locations. Click on pins to view vendor details.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="vendor-list" id="vendorList">
+          <h3>Nearby Vendors</h3>
+          
+          <div class="vendor-card reveal-animation" data-delay="100" data-vendor="vendor1">
+            <div class="vendor-info">
+              <div class="vendor-image">
+                <img src="https://images.unsplash.com/photo-1516006895114-c12315fb4222?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwyfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=200&w=200" alt="Street food vendor">
+              </div>
+              <div class="vendor-details">
+                <h4>Sharma's Street Food</h4>
+                <p class="vendor-category">Food & Beverages</p>
+                <p class="vendor-distance">1.2 km away</p>
+                <span class="vendor-status open">Open Now</span>
+              </div>
+            </div>
+            <div class="vendor-actions">
+              <button class="btn btn-sm view-products-btn shine-effect" data-vendor="vendor1">View Products</button>
+            </div>
+          </div>
+          
+          <div class="vendor-card reveal-animation" data-delay="300" data-vendor="vendor2">
+            <div class="vendor-info">
+              <div class="vendor-image">
+                <img src="https://images.unsplash.com/photo-1485873174476-292bc2df1cc0?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwxfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=200&w=200" alt="Fresh produce vendor">
+              </div>
+              <div class="vendor-details">
+                <h4>Patel's Fresh Produce</h4>
+                <p class="vendor-category">Fresh Produce</p>
+                <p class="vendor-distance">0.8 km away</p>
+                <span class="vendor-status open">Open Now</span>
+              </div>
+            </div>
+            <div class="vendor-actions">
+              <button class="btn btn-sm view-products-btn shine-effect" data-vendor="vendor2">View Products</button>
+            </div>
+          </div>
+          
+          <div class="vendor-card reveal-animation" data-delay="500" data-vendor="vendor3">
+            <div class="vendor-info">
+              <div class="vendor-image">
+                <img src="https://images.unsplash.com/photo-1517243985121-d6ae97460078?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHw1fHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=200&w=200" alt="Handcrafts vendor">
+              </div>
+              <div class="vendor-details">
+                <h4>Meena's Handcrafts</h4>
+                <p class="vendor-category">Handmade Crafts</p>
+                <p class="vendor-distance">1.5 km away</p>
+                <span class="vendor-status closed">Closed</span>
+              </div>
+            </div>
+            <div class="vendor-actions">
+              <button class="btn btn-sm view-products-btn shine-effect" data-vendor="vendor3">View Products</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="orders-section reveal-animation" data-delay="700">
+        <h3>Your Recent Orders</h3>
+        <div class="order-tabs">
+          <button class="order-tab active" data-tab="active">Active Orders</button>
+          <button class="order-tab" data-tab="completed">Completed</button>
+        </div>
+        <div class="orders-list">
+          <div class="order-card">
+            <div class="order-header">
+              <div class="order-id">#ORD12345</div>
+              <div class="order-date">Today, 2:30 PM</div>
+              <div class="order-status pending">Processing</div>
+            </div>
+            <div class="order-vendor">
+              <img src="https://images.unsplash.com/photo-1516006895114-c12315fb4222?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwyfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=50&w=50" alt="Vendor">
+              Sharma's Street Food
+            </div>
+            <div class="order-items">
+              <div class="order-item">
+                <span class="item-name">Vegetable Samosa</span>
+                <span class="item-qty">x3</span>
+                <span class="item-price">₹60</span>
+              </div>
+              <div class="order-item">
+                <span class="item-name">Masala Chai</span>
+                <span class="item-qty">x2</span>
+                <span class="item-price">₹30</span>
+              </div>
+            </div>
+            <div class="order-total">
+              <span>Total:</span>
+              <span class="total-amount">₹90</span>
+            </div>
+          </div>
+          
+          <div class="empty-orders hidden">
+            <p>You don't have any orders yet.</p>
+            <p>Start exploring vendors nearby!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" id="vendorProductsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalVendorName" class="text-gradient">Vendor Products</h3>
+        <button class="close-btn" id="closeProductsModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="product-grid" id="vendorProductsGrid">
+          <div class="product-item">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1516006895114-c12315fb4222?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwyfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=200&w=200" alt="Product image">
+              <div class="product-badge">Popular</div>
+            </div>
+            <div class="product-info">
+              <h4>Vegetable Samosa</h4>
+              <p class="product-description">Crispy pastry filled with spiced potatoes and peas</p>
+              <p class="product-price">₹20.00</p>
+              <span class="product-status available">Available</span>
+            </div>
+            <button class="btn btn-sm order-btn shine-effect">Order Now</button>
+          </div>
+          
+          <div class="product-item">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1516006895114-c12315fb4222?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwyfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=200&w=200" alt="Product image">
+            </div>
+            <div class="product-info">
+              <h4>Masala Chai</h4>
+              <p class="product-description">Aromatic tea with milk and spices</p>
+              <p class="product-price">₹15.00</p>
+              <span class="product-status available">Available</span>
+            </div>
+            <button class="btn btn-sm order-btn shine-effect">Order Now</button>
+          </div>
+          
+          <div class="product-item">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1516006895114-c12315fb4222?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwyfHxzdHJlZXQlMjBmb29kJTIwbWFya2V0JTIwdmVuZG9yfGVufDB8fHx8MTc0ODU3NjM3MHww&ixlib=rb-4.1.0&fit=fillmax&h=200&w=200" alt="Product image">
+            </div>
+            <div class="product-info">
+              <h4>Pav Bhaji</h4>
+              <p class="product-description">Spicy vegetable curry served with soft bread rolls</p>
+              <p class="product-price">₹60.00</p>
+              <span class="product-status out-of-stock">Out of Stock</span>
+            </div>
+            <button class="btn btn-sm order-btn" disabled>Order Now</button>
+          </div>
+        </div>
+        
+        <div class="payment-section">
+          <h4>Payment Options</h4>
+          <button class="btn btn-full shine-effect" id="showQRBtn">Pay via QR Code</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="qrCodeModal">
+    <div class="modal-content modal-sm">
+      <div class="modal-header">
+        <h3 class="text-gradient">Scan QR to Pay</h3>
+        <button class="close-btn" id="closeQRModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="qr-code">
+          <div class="qr-placeholder"></div>
+        </div>
+        <p>Scan this QR code with any UPI app to pay</p>
+        <div class="payment-apps">
+          <span class="payment-app">GooglePay</span>
+          <span class="payment-app">PhonePe</span>
+          <span class="payment-app">Paytm</span>
+          <span class="payment-app">BHIM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="icon">🛒</span>
+          <h3 class="text-gradient">Bazario</h3>
+          <p>Connecting vendors and customers</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html" class="hover-underline-animation">Home</a></li>
+            <li><a href="vendor.html" class="hover-underline-animation">Vendor Portal</a></li>
+            <li><a href="admin.html" class="hover-underline-animation">Admin Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#" class="hover-underline-animation">Help Center</a></li>
+            <li><a href="#" class="hover-underline-animation">Contact Support</a></li>
+            <li><a href="#" class="hover-underline-animation">FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Bazario. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>
+  
